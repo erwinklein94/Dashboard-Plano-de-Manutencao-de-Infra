@@ -899,6 +899,338 @@ th {
   }
 }
 
+/* ========================================================================== */
+/* Rumo 2026 — interface operacional compacta                                 */
+/* ========================================================================== */
+
+:root {
+  --radius: 10px;
+  --shadow: 0 2px 10px rgba(0, 56, 101, 0.07);
+  --shadow-hover: 0 8px 22px rgba(0, 56, 101, 0.14);
+}
+
+body {
+  background-color: var(--bg);
+  background-image:
+    linear-gradient(rgba(0, 56, 101, 0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 56, 101, 0.025) 1px, transparent 1px),
+    radial-gradient(circle at 92% 4%, color-mix(in srgb, var(--blue) 10%, transparent) 0, transparent 28rem);
+  background-size: 32px 32px, 32px 32px, auto;
+}
+
+.site-header {
+  min-height: 68px;
+  padding: 8px clamp(18px, 3vw, 44px);
+  background: var(--rumo-azul);
+  border-bottom: 0;
+  box-shadow: 0 5px 18px rgba(0, 30, 54, 0.18);
+  isolation: isolate;
+}
+
+.site-header::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  right: 0;
+  bottom: 0;
+  width: min(34vw, 480px);
+  height: 5px;
+  background: linear-gradient(90deg,
+    var(--rumo-verde) 0 27%, transparent 27% 29%,
+    var(--rumo-amarelo) 29% 54%, transparent 54% 56%,
+    var(--rumo-azul-claro) 56% 81%, transparent 81% 83%,
+    var(--rumo-verde-claro) 83% 100%);
+}
+
+.brand-logo {
+  height: 30px;
+  margin: 3px 7px;
+}
+
+.brand-logo-azul,
+body.dark .brand-logo-azul {
+  display: none;
+}
+
+.brand-logo-branco,
+body.dark .brand-logo-branco {
+  display: block;
+}
+
+.brand-subtitle {
+  color: rgba(255, 255, 255, 0.76);
+  border-left-color: rgba(255, 255, 255, 0.28);
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.menu-toggle {
+  padding: 9px 16px;
+  border-color: var(--rumo-amarelo);
+  border-radius: 7px;
+  background: var(--rumo-amarelo);
+  color: var(--rumo-azul-noite);
+  box-shadow: none;
+}
+
+.menu-toggle:hover {
+  background: #ffe44f;
+  box-shadow: 0 5px 14px rgba(0, 30, 54, 0.24);
+}
+
+body.dark .menu-toggle {
+  background: var(--rumo-amarelo);
+  color: var(--rumo-azul-noite);
+}
+
+.header-actions {
+  gap: 7px;
+}
+
+.update-pill,
+.theme-toggle {
+  padding: 8px 11px;
+  border-color: rgba(255, 255, 255, 0.22);
+  border-radius: 7px;
+  background: rgba(0, 30, 54, 0.25);
+  color: #ffffff;
+}
+
+.update-pill span {
+  color: rgba(255, 255, 255, 0.62);
+  font-size: 9px;
+}
+
+.update-pill strong,
+.theme-toggle,
+body.dark .update-pill strong {
+  color: #ffffff;
+}
+
+main,
+.site-footer {
+  width: min(1360px, calc(100% - 36px));
+}
+
+main {
+  padding: 20px 0 44px;
+}
+
+.surface-card,
+.kpi-card,
+.sub-card,
+.obra-card,
+.toolbar {
+  border-radius: var(--radius);
+}
+
+.auth-card {
+  grid-template-columns: minmax(0, 1.15fr) minmax(480px, 0.85fr);
+  gap: 24px;
+  margin-bottom: 14px;
+  padding: 18px 20px;
+  border-top: 4px solid var(--rumo-azul-claro);
+}
+
+.auth-card h2 {
+  margin-top: 5px;
+}
+
+.auth-card p {
+  max-width: 760px;
+  margin-bottom: 0;
+  font-size: 13px;
+}
+
+.section-heading {
+  margin: 18px 0 12px;
+}
+
+h2 {
+  margin: 5px 0 4px;
+  font-size: clamp(24px, 2.4vw, 32px);
+  letter-spacing: -0.035em;
+}
+
+h3 {
+  font-size: 17px;
+}
+
+.eyebrow {
+  gap: 7px;
+  font-size: 10px;
+  letter-spacing: 0.14em;
+}
+
+.eyebrow::before {
+  width: 18px;
+  height: 5px;
+  border-radius: 0;
+  clip-path: polygon(0 0, 100% 0, 86% 100%, 0 100%);
+}
+
+.kpi-grid {
+  gap: 10px;
+  margin-bottom: 12px;
+}
+
+.kpi-card {
+  min-height: 112px;
+  padding: 15px 17px;
+  border-top: 3px solid var(--rumo-azul);
+}
+
+.kpi-card:nth-child(2) { border-top-color: var(--rumo-verde); }
+.kpi-card:nth-child(3) { border-top-color: var(--rumo-amarelo); }
+.kpi-card:nth-child(4) { border-top-color: var(--rumo-azul-claro); }
+
+.kpi-card::after {
+  right: -22px;
+  bottom: -46px;
+  width: 88px;
+  height: 88px;
+  border-radius: 0;
+  clip-path: polygon(18% 0, 100% 0, 100% 100%, 0 100%, 0 18%);
+}
+
+.kpi-label {
+  font-size: 10px;
+}
+
+.kpi-value {
+  margin-top: 7px;
+  font-size: 27px;
+  letter-spacing: -0.035em;
+}
+
+.kpi-detail {
+  margin-top: 4px;
+  font-size: 11px;
+}
+
+.split-grid,
+.cards-grid {
+  gap: 12px;
+}
+
+.surface-card,
+.sub-card,
+.obra-card {
+  padding: 16px;
+}
+
+.compact-list {
+  gap: 8px;
+}
+
+.compact-row {
+  padding: 9px 10px;
+  border-radius: 7px;
+}
+
+.toolbar {
+  gap: 9px;
+  margin-bottom: 12px;
+  padding: 10px;
+  border-left: 4px solid var(--rumo-azul-claro);
+}
+
+select,
+input {
+  border-radius: 7px;
+  padding: 9px 10px;
+}
+
+.cards-grid,
+.obras-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.metric-row {
+  gap: 7px;
+  margin: 11px 0;
+}
+
+.metric-pill,
+.meta-item,
+.detail-row,
+.detail-grid div {
+  padding: 9px;
+  border-radius: 7px;
+}
+
+.badge,
+.status-badge,
+.risk-badge {
+  min-height: 24px;
+  padding: 4px 8px;
+  font-size: 10px;
+}
+
+.sub-percent {
+  font-size: 34px;
+}
+
+.side-menu {
+  width: min(320px, calc(100vw - 36px));
+  padding: 18px;
+  border-right: 5px solid var(--rumo-amarelo);
+}
+
+.side-menu-nav .tab {
+  padding: 12px 14px;
+  border-radius: 7px;
+}
+
+.site-footer {
+  padding: 18px 0 26px;
+  font-size: 11px;
+}
+
+.footer-tiles {
+  gap: 5px;
+  margin-bottom: 12px;
+}
+
+.footer-tiles span {
+  height: 8px;
+  clip-path: polygon(0 0, 100% 0, 96% 100%, 0 100%);
+}
+
+@media (min-width: 1540px) {
+  main,
+  .site-footer {
+    width: min(1480px, calc(100% - 48px));
+  }
+
+  .obras-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 1100px) {
+  .cards-grid,
+  .obras-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .auth-card {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 760px) {
+  .cards-grid,
+  .obras-grid {
+    grid-template-columns: 1fr;
+  }
+
+  main,
+  .site-footer {
+    width: min(100% - 22px, 1360px);
+  }
+}
+
 .activity-summary {
   margin-top: 8px;
 }
@@ -1242,4 +1574,32 @@ body.dark .menu-toggle {
   .menu-toggle {
     padding: 10px 14px;
   }
+}
+
+/* Mantém os controles institucionais acima das regras legadas do menu. */
+.menu-toggle,
+body.dark .menu-toggle {
+  padding: 9px 16px;
+  border: 1px solid var(--rumo-amarelo);
+  border-radius: 7px;
+  background: var(--rumo-amarelo);
+  color: var(--rumo-azul-noite);
+  box-shadow: none;
+}
+
+.menu-toggle:hover,
+body.dark .menu-toggle:hover {
+  background: #ffe44f;
+  box-shadow: 0 5px 14px rgba(0, 30, 54, 0.24);
+}
+
+.side-menu {
+  width: min(320px, calc(100vw - 36px));
+  padding: 18px;
+  border-right: 5px solid var(--rumo-amarelo);
+}
+
+.side-menu-nav .tab {
+  padding: 12px 14px;
+  border-radius: 7px;
 }

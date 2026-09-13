@@ -25,7 +25,8 @@ Paleta institucional adicionada no `:root` e ligada aos aliases do projeto:
 
 - **Proporção respeitada:** azul escuro dominante + branco/neutros na estrutura; azuis/verdes
   como acentos; amarelo só em toques. **Roxo não foi usado** (é cor da Raízen).
-- **Forma:** `--radius` ajustado de `22px` para `14px` (chanfro sutil do grafismo).
+- **Forma:** `--radius` ajustado para `10px`, com chanfros geométricos no rodapé,
+  nos indicadores e nos marcadores de seção.
 - **Sombra:** tingida no azul (`rgba(0,56,101,…)`).
 
 ### Tipografia
@@ -53,8 +54,19 @@ Alinhado à regra do manual: fundos **azul profundo** (`#001E36` / `#002B4D`) co
 - [x] Logo na versão certa por fundo, com área de segurança e ≥ 70px.
 - [x] Fonte Cera Pro com fallback Verdana — sem embutir a Cera Pro.
 - [x] Contraste AA/AAA (texto branco sobre azul; amarelo só em fundo/badge, nunca como texto).
-- [x] Cantos com chanfro/raio sutil (14px); sombras tingidas no azul.
+- [x] Cantos com chanfro/raio sutil (10px); sombras tingidas no azul.
 - [x] Esta validação documentada.
+
+## Evolução da interface — setembro de 2026
+
+- Header transformado em uma faixa institucional azul com logo branco e régua cromática.
+- Navegação destacada em amarelo, seguindo o uso pontual das cores secundárias.
+- Fundo técnico modular inspirado no grid da marca, com baixa opacidade para não competir
+  com os dados.
+- Cards receberam hierarquia cromática, chanfros e bordas superiores funcionais.
+- Largura útil do desktop ampliada de `1180px` para `1360px` (`1480px` em telas largas).
+- Espaçamentos, títulos, filtros, métricas e cartões foram compactados para exibir mais
+  conteúdo em `1440 × 900`, mantendo legibilidade e responsividade.
 
 ## Não alterado (fora do escopo "aparência")
 - Lógica de importação da planilha e geração dos dashboards (`script.js`).
